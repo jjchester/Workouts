@@ -54,6 +54,7 @@ struct SignInView: View {
                 .padding()
                 .background(Color(.secondarySystemBackground))
                 .cornerRadius(10)
+
             if errorCode != nil {
                 Text(errorCode!)
                     .foregroundColor(.red)
@@ -69,6 +70,7 @@ struct SignInView: View {
                     .background(Color.blue)
                     .cornerRadius(10)
             })
+                .padding(.top, 30)
                 
             
             NavigationLink("Create Account", destination: SignUpView())
@@ -83,7 +85,7 @@ struct SignUpView: View {
     @State var email = ""
     @State var password = ""
     @State var passwordConfirm = ""
-    @State var mismatchedPasswords = false
+    @State var errorCode: String? = nil
     
     @EnvironmentObject var authState: AuthState
     
@@ -115,17 +117,17 @@ struct SignUpView: View {
                 .padding()
                 .background(Color(.secondarySystemBackground))
                 .cornerRadius(10)
-            if self.mismatchedPasswords {
-                Text("Passwords do not match")
+            if errorCode != nil {
+                Text(errorCode!)
                     .foregroundColor(.red)
-                    .frame(alignment: .leading)
             }
             Button(action: {
-                if !passwordsMatch() {
-                    self.mismatchedPasswords = true
+                if passwordsMatch() {
+                    self.authState.signUp(email: self.email, password: self.password, completion: { error in
+                        errorCode = error
+                    })
                 } else {
-                    self.mismatchedPasswords = false
-                    self.authState.signUp(email: self.email, password: self.password)
+                    errorCode = "Passwords do not match"
                 }
             }, label: {
                 Text("Sign Up")
@@ -136,8 +138,10 @@ struct SignUpView: View {
                     .opacity(passwordsEmpty() ? 0.6 : 1)
                     .disabled(passwordsEmpty())
             })
+                .padding(.top, 30)
         }
         .padding()
+        .padding(.top, 30)
         .padding(.bottom, 70)
     }
 }

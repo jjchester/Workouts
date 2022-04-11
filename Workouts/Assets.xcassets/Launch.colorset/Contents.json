@@ -1,10 +1,6 @@
 {
   "colors" : [
     {
-      "color" : {
-        "platform" : "ios",
-        "reference" : "systemGray2Color"
-      },
       "idiom" : "universal"
     },
     {
@@ -14,10 +10,6 @@
           "value" : "dark"
         }
       ],
-      "color" : {
-        "platform" : "ios",
-        "reference" : "systemGray5Color"
-      },
       "idiom" : "universal"
     }
   ],

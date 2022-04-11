@@ -43,9 +43,24 @@ class AuthState: ObservableObject {
         return
     }
     
-    func signUp(email: String, password: String) {
+    func signUp(email: String, password: String, completion: @escaping (String?) -> ()) {
+        var e: String? = nil
         auth.createUser(withEmail: email, password: password) { [weak self] result, error in
             guard result != nil && error == nil else {
+                if let x = error {
+                     let err = x as NSError
+                    switch err.code {
+                        case AuthErrorCode.emailAlreadyInUse.rawValue:
+                            e = "That email address is already in use"
+                        case AuthErrorCode.weakPassword.rawValue:
+                            e = "Password must be at least 6 characters"
+                        case AuthErrorCode.invalidEmail.rawValue:
+                            e = "Invalid email address"
+                        default:
+                            e = "unknown error: \(err.localizedDescription)"
+                    }
+                }
+                completion(e)
                 return
             }
             

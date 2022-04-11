@@ -1,7 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "dumbbell_black.png",
+      "filename" : "dumbbell_gradient-1.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
@@ -12,7 +12,7 @@
           "value" : "dark"
         }
       ],
-      "filename" : "dumbbell.png",
+      "filename" : "dumbbell_gradient.png",
       "idiom" : "universal",
       "scale" : "1x"
     },

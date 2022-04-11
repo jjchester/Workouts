@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		9DFFEDA154FC02B83D81E588 /* Pods_Workouts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 701CC8D45FE9A4B71501F5A2 /* Pods_Workouts.framework */; };
+		D09377E92803736D008082E2 /* WorkoutsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09377E82803736D008082E2 /* WorkoutsView.swift */; };
 		D0B07937280241F3007EE7D6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D0B07936280241F3007EE7D6 /* GoogleService-Info.plist */; };
 		D0B0793B2802495D007EE7D6 /* AuthState.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B0793A2802495D007EE7D6 /* AuthState.swift */; };
 		D0B0793D28024BA8007EE7D6 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B0793C28024BA8007EE7D6 /* MainView.swift */; };
@@ -22,6 +23,7 @@
 /* Begin PBXFileReference section */
 		701CC8D45FE9A4B71501F5A2 /* Pods_Workouts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Workouts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7AC248A3C92B22D00C88123B /* Pods-Workouts.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Workouts.debug.xcconfig"; path = "Target Support Files/Pods-Workouts/Pods-Workouts.debug.xcconfig"; sourceTree = "<group>"; };
+		D09377E82803736D008082E2 /* WorkoutsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutsView.swift; sourceTree = "<group>"; };
 		D0B07936280241F3007EE7D6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D0B0793A2802495D007EE7D6 /* AuthState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthState.swift; sourceTree = "<group>"; };
 		D0B0793C28024BA8007EE7D6 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -79,6 +81,7 @@
 				D0B0793C28024BA8007EE7D6 /* MainView.swift */,
 				D0B0793E28024BE7007EE7D6 /* HomeView.swift */,
 				D0B0794028024D50007EE7D6 /* SettingsView.swift */,
+				D09377E82803736D008082E2 /* WorkoutsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -252,6 +255,7 @@
 				D0C1EB3428023716001A7959 /* WorkoutsApp.swift in Sources */,
 				D0B0794128024D50007EE7D6 /* SettingsView.swift in Sources */,
 				D0B0793F28024BE7007EE7D6 /* HomeView.swift in Sources */,
+				D09377E92803736D008082E2 /* WorkoutsView.swift in Sources */,
 				D0B0793B2802495D007EE7D6 /* AuthState.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

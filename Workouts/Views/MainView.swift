@@ -16,12 +16,21 @@ struct MainView: View {
             HomeView()
                 .environmentObject(authState)
                 .tabItem {
-                    Label("Home", systemImage: "house")
+                    Image(systemName: "house")
+                    Text("Home")
                 }
-            SettingsView()
+            WorkoutsView()
                 .environmentObject(authState)
                 .tabItem {
-                    Label("Settings", systemImage: "gearshape")
+                    Image("dumbbell_icon")
+                        .renderingMode(.template)
+                    Text("Workouts")
+                }
+            ProfileView()
+                .environmentObject(authState)
+                .tabItem {
+                    Image(systemName: "person")
+                    Text("Profile")
                 }
         }
     }
