@@ -7,6 +7,7 @@
 
 import Foundation
 import FirebaseAuth
+import FirebaseFirestore
 
 class AuthState: ObservableObject {
     
@@ -43,7 +44,7 @@ class AuthState: ObservableObject {
         return
     }
     
-    func signUp(email: String, password: String, completion: @escaping (String?) -> ()) {
+    func signUp(firstName: String, lastName: String, email: String, password: String, completion: @escaping (String?) -> () ) {
         var e: String? = nil
         auth.createUser(withEmail: email, password: password) { [weak self] result, error in
             guard result != nil && error == nil else {
@@ -63,7 +64,10 @@ class AuthState: ObservableObject {
                 completion(e)
                 return
             }
+            let uid = self!.auth.currentUser!.uid;
+            let db = Firestore.firestore()
             
+            db.collection("users").document(uid).setData(UserModel(uid: uid, firstName: firstName, lastName: lastName, email: email).toJson())
             DispatchQueue.main.async {
                 self?.signedIn = true
             }

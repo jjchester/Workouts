@@ -7,18 +7,30 @@
 
 import SwiftUI
 
+enum Tab {
+    case home
+    case workouts
+    case profile
+}
+
 struct MainView: View {
     
     @EnvironmentObject var authState: AuthState
-
+    @State var selection: Tab = .home
+    
+    init() {
+//        UITabBar.appearance().unselectedItemTintColor = .red
+    }
+    
     var body: some View {
-        TabView {
+        TabView(selection: $selection) {
             HomeView()
                 .environmentObject(authState)
                 .tabItem {
                     Image(systemName: "house")
                     Text("Home")
                 }
+                .tag(Tab.home)
             WorkoutsView()
                 .environmentObject(authState)
                 .tabItem {
@@ -26,12 +38,26 @@ struct MainView: View {
                         .renderingMode(.template)
                     Text("Workouts")
                 }
+                .tag(Tab.workouts)
             ProfileView()
                 .environmentObject(authState)
                 .tabItem {
                     Image(systemName: "person")
                     Text("Profile")
                 }
+                .tag(Tab.profile)
+        }
+        .navigationTitle(getNavigationTitle())
+    }
+    
+    func getNavigationTitle() -> String{
+        switch selection {
+        case .home:
+            return "Home"
+        case .workouts:
+            return "Workouts"
+        case .profile:
+            return "Profile"
         }
     }
 }

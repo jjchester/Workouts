@@ -16,7 +16,7 @@ struct WorkoutsApp: App {
     var body: some Scene {
         let authState = AuthState()
         WindowGroup {
-            ContentView()
+            LoginView()
                 .environmentObject(authState)
         }
     }

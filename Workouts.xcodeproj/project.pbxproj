@@ -9,13 +9,16 @@
 /* Begin PBXBuildFile section */
 		9DFFEDA154FC02B83D81E588 /* Pods_Workouts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 701CC8D45FE9A4B71501F5A2 /* Pods_Workouts.framework */; };
 		D09377E92803736D008082E2 /* WorkoutsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09377E82803736D008082E2 /* WorkoutsView.swift */; };
+		D09377EB2803E3C9008082E2 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09377EA2803E3C9008082E2 /* UserModel.swift */; };
+		D09377F028040CAE008082E2 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09377EF28040CAE008082E2 /* ProfileViewModel.swift */; };
+		D09377F228051105008082E2 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09377F128051105008082E2 /* LoginViewModel.swift */; };
 		D0B07937280241F3007EE7D6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D0B07936280241F3007EE7D6 /* GoogleService-Info.plist */; };
 		D0B0793B2802495D007EE7D6 /* AuthState.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B0793A2802495D007EE7D6 /* AuthState.swift */; };
 		D0B0793D28024BA8007EE7D6 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B0793C28024BA8007EE7D6 /* MainView.swift */; };
 		D0B0793F28024BE7007EE7D6 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B0793E28024BE7007EE7D6 /* HomeView.swift */; };
-		D0B0794128024D50007EE7D6 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B0794028024D50007EE7D6 /* SettingsView.swift */; };
+		D0B0794128024D50007EE7D6 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B0794028024D50007EE7D6 /* ProfileView.swift */; };
 		D0C1EB3428023716001A7959 /* WorkoutsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C1EB3328023716001A7959 /* WorkoutsApp.swift */; };
-		D0C1EB3628023716001A7959 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C1EB3528023716001A7959 /* ContentView.swift */; };
+		D0C1EB3628023716001A7959 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C1EB3528023716001A7959 /* LoginView.swift */; };
 		D0C1EB3828023717001A7959 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D0C1EB3728023717001A7959 /* Assets.xcassets */; };
 		D0C1EB3B28023717001A7959 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D0C1EB3A28023717001A7959 /* Preview Assets.xcassets */; };
 /* End PBXBuildFile section */
@@ -24,15 +27,18 @@
 		701CC8D45FE9A4B71501F5A2 /* Pods_Workouts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Workouts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7AC248A3C92B22D00C88123B /* Pods-Workouts.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Workouts.debug.xcconfig"; path = "Target Support Files/Pods-Workouts/Pods-Workouts.debug.xcconfig"; sourceTree = "<group>"; };
 		D09377E82803736D008082E2 /* WorkoutsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutsView.swift; sourceTree = "<group>"; };
+		D09377EA2803E3C9008082E2 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		D09377EF28040CAE008082E2 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
+		D09377F128051105008082E2 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		D0B07936280241F3007EE7D6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D0B0793A2802495D007EE7D6 /* AuthState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthState.swift; sourceTree = "<group>"; };
 		D0B0793C28024BA8007EE7D6 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		D0B0793E28024BE7007EE7D6 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
-		D0B0794028024D50007EE7D6 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		D0B0794028024D50007EE7D6 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		D0B0794228025C82007EE7D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		D0C1EB3028023716001A7959 /* Workouts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Workouts.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0C1EB3328023716001A7959 /* WorkoutsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutsApp.swift; sourceTree = "<group>"; };
-		D0C1EB3528023716001A7959 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		D0C1EB3528023716001A7959 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		D0C1EB3728023717001A7959 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D0C1EB3A28023717001A7959 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		D57A302D63FFCBDE459A136C /* Pods-Workouts.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Workouts.release.xcconfig"; path = "Target Support Files/Pods-Workouts/Pods-Workouts.release.xcconfig"; sourceTree = "<group>"; };
@@ -70,17 +76,25 @@
 		D09377E7280279E8008082E2 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				D09377EA2803E3C9008082E2 /* UserModel.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		D09377EC28040A6B008082E2 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 		D0B079382802491C007EE7D6 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				D0C1EB3528023716001A7959 /* ContentView.swift */,
+				D0C1EB3528023716001A7959 /* LoginView.swift */,
 				D0B0793C28024BA8007EE7D6 /* MainView.swift */,
 				D0B0793E28024BE7007EE7D6 /* HomeView.swift */,
-				D0B0794028024D50007EE7D6 /* SettingsView.swift */,
+				D0B0794028024D50007EE7D6 /* ProfileView.swift */,
 				D09377E82803736D008082E2 /* WorkoutsView.swift */,
 			);
 			path = Views;
@@ -89,6 +103,8 @@
 		D0B0793928024924007EE7D6 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				D09377EF28040CAE008082E2 /* ProfileViewModel.swift */,
+				D09377F128051105008082E2 /* LoginViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -114,6 +130,7 @@
 		D0C1EB3228023716001A7959 /* Workouts */ = {
 			isa = PBXGroup;
 			children = (
+				D09377EC28040A6B008082E2 /* Controllers */,
 				D0B0793A2802495D007EE7D6 /* AuthState.swift */,
 				D09377E7280279E8008082E2 /* Models */,
 				D0B0794228025C82007EE7D6 /* Info.plist */,
@@ -250,12 +267,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D0C1EB3628023716001A7959 /* ContentView.swift in Sources */,
+				D0C1EB3628023716001A7959 /* LoginView.swift in Sources */,
 				D0B0793D28024BA8007EE7D6 /* MainView.swift in Sources */,
+				D09377EB2803E3C9008082E2 /* UserModel.swift in Sources */,
+				D09377F028040CAE008082E2 /* ProfileViewModel.swift in Sources */,
 				D0C1EB3428023716001A7959 /* WorkoutsApp.swift in Sources */,
-				D0B0794128024D50007EE7D6 /* SettingsView.swift in Sources */,
+				D0B0794128024D50007EE7D6 /* ProfileView.swift in Sources */,
 				D0B0793F28024BE7007EE7D6 /* HomeView.swift in Sources */,
 				D09377E92803736D008082E2 /* WorkoutsView.swift in Sources */,
+				D09377F228051105008082E2 /* LoginViewModel.swift in Sources */,
 				D0B0793B2802495D007EE7D6 /* AuthState.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

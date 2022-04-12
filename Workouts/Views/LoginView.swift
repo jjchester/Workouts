@@ -7,8 +7,9 @@
 
 import SwiftUI
 import FirebaseAuth
+import FirebaseFirestore
 
-struct ContentView: View {
+struct LoginView: View {
     @State var email = ""
     @State var password = ""
     
@@ -42,7 +43,7 @@ struct SignInView: View {
         VStack {
             Image("dumbbell")
                 .resizable()
-                .frame(width: 200, height: 200, alignment: .center)
+                .frame(width: 300, height: 300, alignment: .center)
                 .padding(.bottom, 30)
             TextField("Email Address", text: $email)
                 .padding()
@@ -59,6 +60,10 @@ struct SignInView: View {
                 Text(errorCode!)
                     .foregroundColor(.red)
             }
+            List {
+                Text("Test")
+                Text("Test")
+            }
             Button(action: {
                 authState.signIn(email: self.email, password: self.password, completion: { error in
                     errorCode = error
@@ -74,14 +79,19 @@ struct SignInView: View {
                 
             
             NavigationLink("Create Account", destination: SignUpView())
+                .foregroundColor(.blue)
                 .padding()
         }
         .padding()
         .padding(.bottom, 100)
+        .padding(.leading, 30)
+        .padding(.trailing, 30)
     }
 }
 
 struct SignUpView: View {
+    @State var firstName = ""
+    @State var lastName = ""
     @State var email = ""
     @State var password = ""
     @State var passwordConfirm = ""
@@ -101,8 +111,20 @@ struct SignUpView: View {
         VStack {
             Image("dumbbell")
                 .resizable()
-                .frame(width: 200, height: 200, alignment: .center)
+                .frame(width: 300, height: 300, alignment: .center)
                 .padding(.bottom, 30)
+            HStack {
+                TextField("First name", text: $firstName)
+                    .padding()
+                    .background(Color(.secondarySystemBackground))
+                    .cornerRadius(10)
+                    .disableAutocorrection(true)
+                TextField("Last name", text: $lastName)
+                    .padding()
+                    .background(Color(.secondarySystemBackground))
+                    .cornerRadius(10)
+                    .disableAutocorrection(true)
+            }
             TextField("Email Address", text: $email)
                 .padding()
                 .background(Color(.secondarySystemBackground))
@@ -123,7 +145,7 @@ struct SignUpView: View {
             }
             Button(action: {
                 if passwordsMatch() {
-                    self.authState.signUp(email: self.email, password: self.password, completion: { error in
+                    authState.signUp(firstName: firstName, lastName: lastName, email: email, password: password, completion: { error in
                         errorCode = error
                     })
                 } else {
@@ -143,11 +165,13 @@ struct SignUpView: View {
         .padding()
         .padding(.top, 30)
         .padding(.bottom, 70)
+        .padding(.leading, 30)
+        .padding(.trailing, 30)
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        LoginView()
     }
 }
