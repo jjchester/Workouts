@@ -32,6 +32,11 @@ class ProfileViewModel: ObservableObject {
             return user.email
         }
     }
+    var imageURL: String {
+        get {
+            return user.imageURL
+        }
+    }
     
     let db = Firestore.firestore()
     var uid: String? = Auth.auth().currentUser?.uid
@@ -42,16 +47,6 @@ class ProfileViewModel: ObservableObject {
     
     func getUser() {
         let docref = db.collection("users").document(uid ?? " ")
-//        docref.getDocument { [self] document, error in
-//            guard let document = document, document.exists else {
-//                print("Document does not exist")
-//                return
-//            }
-//            let userData = document.data()!
-//            DispatchQueue.main.async {
-//                user = UserModel(uid: userData["uid"] as! String, firstName: userData["firstName"] as! String, lastName: userData["lastName"] as! String, email: userData["email"] as! String)
-//            }
-//        }
         docref.addSnapshotListener { snapshot, error in
             guard let snapshot = snapshot, snapshot.exists else {
                 print("Snapshot does not exist")
@@ -59,8 +54,16 @@ class ProfileViewModel: ObservableObject {
             }
             let userData = snapshot.data()!
             DispatchQueue.main.async {
-                self.user = UserModel(uid: userData["uid"] as! String, firstName: userData["firstName"] as! String, lastName: userData["lastName"] as! String, email: userData["email"] as! String)
+                self.user = UserModel(
+                    uid: userData["uid"] as! String,
+                    firstName: userData["firstName"] as! String,
+                    lastName: userData["lastName"] as! String,
+                    email: userData["email"] as! String,
+                    imageURL: userData["imageURL"] as! String
+                )
             }
         }
     }
 }
+
+typealias ProfileVM = ProfileViewModel

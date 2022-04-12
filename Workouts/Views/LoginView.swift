@@ -55,14 +55,12 @@ struct SignInView: View {
                 .padding()
                 .background(Color(.secondarySystemBackground))
                 .cornerRadius(10)
-
+            NavigationLink("Forgot password?", destination: ForgotPasswordView())
+                .foregroundColor(.blue)
+                .frame(maxWidth: .infinity, alignment: .trailing)
             if errorCode != nil {
                 Text(errorCode!)
                     .foregroundColor(.red)
-            }
-            List {
-                Text("Test")
-                Text("Test")
             }
             Button(action: {
                 authState.signIn(email: self.email, password: self.password, completion: { error in
@@ -74,8 +72,8 @@ struct SignInView: View {
                     .frame(width: 200, height: 50)
                     .background(Color.blue)
                     .cornerRadius(10)
+                    .padding(.top, 20)
             })
-                .padding(.top, 30)
                 
             
             NavigationLink("Create Account", destination: SignUpView())
@@ -83,9 +81,9 @@ struct SignInView: View {
                 .padding()
         }
         .padding()
-        .padding(.bottom, 100)
         .padding(.leading, 30)
         .padding(.trailing, 30)
+        .frame(maxHeight: .infinity, alignment: .top)
     }
 }
 
@@ -162,11 +160,65 @@ struct SignUpView: View {
             })
                 .padding(.top, 30)
         }
-        .padding()
         .padding(.top, 30)
         .padding(.bottom, 70)
         .padding(.leading, 30)
         .padding(.trailing, 30)
+        .frame(maxHeight: .infinity, alignment: .top)
+
+    }
+}
+
+struct ForgotPasswordView: View {
+    @State var email = ""
+    @State var errorStr: String = ""
+    @State var isResetDisabled: Bool = false
+
+    @EnvironmentObject var authState: AuthState
+    
+    var body: some View {
+        VStack {
+            Image("dumbbell")
+                .resizable()
+                .frame(width: 300, height: 300, alignment: .center)
+                .padding(.bottom, 30)
+            Text("Enter your email address to request password reset email")
+                .frame(alignment: .center)
+                .multilineTextAlignment(.center)
+            TextField("Email Address", text: $email, onEditingChanged: { _ in
+                self.isResetDisabled = false
+            })
+                .padding()
+                .background(Color(.secondarySystemBackground))
+                .cornerRadius(10)
+                .disableAutocorrection(true)
+                .autocapitalization(.none)
+            Text(errorStr)
+                .foregroundColor(errorStr.contains("Failed") ? .red : .green)
+            Button(action: {
+                authState.resetEmail(email: email, completion: { error in
+                    isResetDisabled = true
+                    if error == 0 {
+                        errorStr = "Successfully sent password reset email"
+                    } else {
+                        errorStr = "Failed to send password reset email"
+                    }
+                })
+            }, label: {
+                Text("Send Reset Email")
+                    .foregroundColor(Color.white)
+                    .frame(width: 200, height: 50)
+                    .background(Color.blue)
+                    .cornerRadius(10)
+                    .padding(.top, 20)
+            })
+                .disabled(isResetDisabled)
+                .opacity(isResetDisabled ? 0.6 : 1)
+        }
+        .padding()
+        .padding(.leading, 30)
+        .padding(.trailing, 30)
+        .frame(maxHeight: .infinity, alignment: .top)
     }
 }
 

@@ -78,4 +78,16 @@ class AuthState: ObservableObject {
         try? auth.signOut()
         self.signedIn = false
     }
+    
+    func resetEmail(email: String, completion: @escaping (Int) -> () ) {
+        auth.sendPasswordReset(withEmail: email) { error in
+            guard error == nil else {
+                print((error! as NSError).code)
+                completion(1)
+                return
+            }
+            completion(0)
+        }
+        
+    }
 }

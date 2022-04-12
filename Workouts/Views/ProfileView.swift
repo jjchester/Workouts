@@ -10,13 +10,13 @@ import SwiftUI
 struct ProfileView: View {
 
     @EnvironmentObject var authState: AuthState
-    @ObservedObject var viewModel: ProfileViewModel = ProfileViewModel()
+    @ObservedObject var viewModel: ProfileVM = ProfileVM()
     
     var body: some View {
         ZStack {
             VStack {
                 VStack {
-                    AsyncImage(url: URL(string: "https://external-preview.redd.it/3vM1pbiUOHHzTFeQkBdbVS4lUY2fJl70DfKSlZ8mQyc.png?auto=webp&s=9e578d42143d3da43058ca88833d25a22f847ee6")) { phase in
+                    AsyncImage(url: URL(string: viewModel.imageURL)) { phase in
                         switch phase {
                         case .empty:
                             ProgressView()
@@ -50,9 +50,8 @@ struct ProfileView: View {
                     self.authState.signOut()
                 }, label: {
                     Text("Sign Out")
-                        .foregroundColor(Color.white)
-                        .frame(width: 200, height: 50)
-                        .background(Color.red)
+                        .foregroundColor(.red)
+                        .frame(width: 160, height: 40)
                         .cornerRadius(10)
                 })
                     .frame(maxHeight: .infinity, alignment: .bottom)

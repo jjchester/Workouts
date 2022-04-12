@@ -18,13 +18,15 @@ struct UserModel {
             return firstName + " " + lastName
         }
     }
+    var imageURL: String = "https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png?20150327203541"
     
     func toJson() -> [String: Any]{
         return [
             "uid": self.uid,
             "firstName": self.firstName,
             "lastName": self.lastName,
-            "email": self.email
+            "email": self.email,
+            "imageURL": self.imageURL
         ]
     }
     
