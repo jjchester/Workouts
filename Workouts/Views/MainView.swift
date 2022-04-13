@@ -19,7 +19,7 @@ struct MainView: View {
     @State var selection: Tab = .home
     
     init() {
-        //UITabBar.appearance().backgroundColor = .systemGray6
+        UITabBar.appearance().backgroundColor = .white
     }
     
     var body: some View {
@@ -34,8 +34,8 @@ struct MainView: View {
             WorkoutsView()
                 .environmentObject(authState)
                 .tabItem {
-                    Image("dumbbell_40px")
-                        .renderingMode(.template)
+                    Image("dumbbell.SFSymbol")
+                        .font(.system(size: 32))
                     Text("Workouts")
                 }
                 .tag(Tab.workouts)

@@ -22,6 +22,7 @@
 		D09378042805752F008082E2 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09378032805752F008082E2 /* Helper.swift */; };
 		D0937807280576A4008082E2 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0937806280576A4008082E2 /* DateExtension.swift */; };
 		D093780928057DAF008082E2 /* WorkoutDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D093780828057DAF008082E2 /* WorkoutDetailsView.swift */; };
+		D093780F28067A6D008082E2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D093780E28067A6D008082E2 /* Assets.xcassets */; };
 		D0B07937280241F3007EE7D6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D0B07936280241F3007EE7D6 /* GoogleService-Info.plist */; };
 		D0B0793B2802495D007EE7D6 /* AuthState.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B0793A2802495D007EE7D6 /* AuthState.swift */; };
 		D0B0793D28024BA8007EE7D6 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B0793C28024BA8007EE7D6 /* MainView.swift */; };
@@ -29,7 +30,6 @@
 		D0B0794128024D50007EE7D6 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B0794028024D50007EE7D6 /* ProfileView.swift */; };
 		D0C1EB3428023716001A7959 /* WorkoutsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C1EB3328023716001A7959 /* WorkoutsApp.swift */; };
 		D0C1EB3628023716001A7959 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C1EB3528023716001A7959 /* LoginView.swift */; };
-		D0C1EB3828023717001A7959 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D0C1EB3728023717001A7959 /* Assets.xcassets */; };
 		D0C1EB3B28023717001A7959 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D0C1EB3A28023717001A7959 /* Preview Assets.xcassets */; };
 /* End PBXBuildFile section */
 
@@ -50,6 +50,7 @@
 		D09378032805752F008082E2 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		D0937806280576A4008082E2 /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 		D093780828057DAF008082E2 /* WorkoutDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutDetailsView.swift; sourceTree = "<group>"; };
+		D093780E28067A6D008082E2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D0B07936280241F3007EE7D6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D0B0793A2802495D007EE7D6 /* AuthState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthState.swift; sourceTree = "<group>"; };
 		D0B0793C28024BA8007EE7D6 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -59,7 +60,6 @@
 		D0C1EB3028023716001A7959 /* Workouts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Workouts.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0C1EB3328023716001A7959 /* WorkoutsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutsApp.swift; sourceTree = "<group>"; };
 		D0C1EB3528023716001A7959 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
-		D0C1EB3728023717001A7959 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D0C1EB3A28023717001A7959 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		D57A302D63FFCBDE459A136C /* Pods-Workouts.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Workouts.release.xcconfig"; path = "Target Support Files/Pods-Workouts/Pods-Workouts.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -164,6 +164,7 @@
 		D0C1EB2728023716001A7959 = {
 			isa = PBXGroup;
 			children = (
+				D093780E28067A6D008082E2 /* Assets.xcassets */,
 				D0C1EB3228023716001A7959 /* Workouts */,
 				D0C1EB3128023716001A7959 /* Products */,
 				6C1FEB22D895B5191A29664C /* Pods */,
@@ -191,7 +192,6 @@
 				D0B079382802491C007EE7D6 /* Views */,
 				D0B07936280241F3007EE7D6 /* GoogleService-Info.plist */,
 				D0C1EB3328023716001A7959 /* WorkoutsApp.swift */,
-				D0C1EB3728023717001A7959 /* Assets.xcassets */,
 				D0C1EB3928023717001A7959 /* Preview Content */,
 				D09378032805752F008082E2 /* Helper.swift */,
 			);
@@ -267,7 +267,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D0C1EB3B28023717001A7959 /* Preview Assets.xcassets in Resources */,
-				D0C1EB3828023717001A7959 /* Assets.xcassets in Resources */,
+				D093780F28067A6D008082E2 /* Assets.xcassets in Resources */,
 				D0B07937280241F3007EE7D6 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

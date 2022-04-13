@@ -14,7 +14,7 @@ enum WorkoutType {
     case neither
 }
 
-struct WorkoutModel {
+struct WorkoutModel: Hashable {
     private var _workoutType: WorkoutType = .neither
     
     var workoutType: String {
@@ -36,11 +36,16 @@ struct WorkoutModel {
                 _workoutType = .strength
             case "Cardio":
                 _workoutType = .cardio
-            default:
+            case "Mixed":
                 _workoutType = .mixed
+            default:
+                _workoutType = .neither
             }
         }
     }
+    
+    var durationHours: Int = 0
+    var durationMinutes: Int = 0
     
     var date: Date = Date()
     
@@ -49,10 +54,19 @@ struct WorkoutModel {
         self.date = date
     }
     
+    init(workoutType: String, date: Date, durationHours: Int, durationMinutes: Int) {
+        self.workoutType = workoutType
+        self.date = date
+        self.durationHours = durationHours
+        self.durationMinutes = durationMinutes
+    }
+    
     func toJson() -> [String: Any] {
         return [
             "type": workoutType,
-            "date": date
+            "date": date,
+            "durationHours": durationHours,
+            "durationMinutes": durationMinutes
         ]
     }
 }

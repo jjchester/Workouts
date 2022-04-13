@@ -16,7 +16,7 @@ struct WorkoutCardView: View {
     }
     
     var body: some View {
-        NavigationLink(destination: WorkoutDetailsView()) {
+        NavigationLink(destination: WorkoutDetailsView(vm: self.vm)) {
             ZStack {
                 RoundedRectangle(cornerRadius: 10, style: .continuous)
                     .fill(Color(red: 0.99, green: 0.99, blue: 0.99))
@@ -27,23 +27,29 @@ struct WorkoutCardView: View {
                         Image(systemName: "heart")
                             .foregroundColor(Color("brightPink"))
                             .font(.system(size: 40))
-                            .frame(maxHeight: .infinity, alignment: .top)
+                            .frame(maxHeight: .infinity, alignment: .center)
                     case "Strength":
-                        Image("strength")
+                        Image("barbell")
                             .renderingMode(.template)
                             .foregroundColor(Color("brightBlue"))
-                            .frame(maxHeight: .infinity, alignment: .top)
-                    default:
+                            .font(.system(size: 60))
+                            .frame(maxHeight: .infinity, alignment: .center)
+                    case "Mixed":
                         Image(systemName: "arrow.up.heart")
                             .font(.system(size: 40))
-                            .frame(maxHeight: .infinity, alignment: .top)
+                            .frame(maxHeight: .infinity, alignment: .center)
                             .foregroundStyle(LinearGradient(gradient: Gradient(colors: [Color("brightPink"), Color("brightBlue")]), startPoint: .leading, endPoint: .trailing))
+                    default:
+                        ProgressView()
                     }
                     VStack {
                         Text(self.vm.workoutType)
                             .font(.title3)
                             .frame(maxWidth: .infinity, alignment: .leading)
                         Text(Helper.dateToString(date: self.vm.date))
+                            .font(.caption)
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                        Text(self.vm.duration)
                             .font(.caption)
                             .frame(maxWidth: .infinity, alignment: .leading)
                     }

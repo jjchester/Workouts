@@ -12,11 +12,11 @@ struct WorkoutsView: View {
     @EnvironmentObject var authState: AuthState
     @ObservedObject var vm = WorkoutsVM()
     @State var selection: Int? = nil
-    var vms: [WorkoutVM] = []
+    @State var vms: [WorkoutVM] = []
     
     var body: some View {
         VStack {
-            Spacer()
+            Text("Banner")
             ZStack(alignment: .bottomTrailing) {
                 ScrollView {
                     VStack(spacing: 10) {
@@ -24,8 +24,10 @@ struct WorkoutsView: View {
                             ProgressView()
                                 .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottomTrailing)
                         } else {
-                            ForEach(vm.docIds, id: \.self) { docId in
-                                WorkoutCardView(vm: WorkoutVM(docId: docId))
+                            LazyVGrid(columns: [GridItem(.flexible())]) {
+                                ForEach(vm.viewModels, id: \.self) { viewModel in
+                                    WorkoutCardView(vm: viewModel)
+                                }
                             }
                         }
                     }
@@ -34,13 +36,13 @@ struct WorkoutsView: View {
                     Button(action: {
                         self.selection = 1
                     }, label: {
-                        Image(systemName: "plus.circle")
-                            .font(.system(size: 40))
+                        Image(systemName: "plus.circle.fill")
                             .foregroundColor(.blue)
-                            .padding()
+                            .clipShape(Circle())
+                            .font(.system(size: 55))
+                            .shadow(color: .gray, radius: 1, x: 0, y: 2)
                     }
                     )
-                        .frame(alignment: .bottomTrailing)
                         .padding()
                 }
             }

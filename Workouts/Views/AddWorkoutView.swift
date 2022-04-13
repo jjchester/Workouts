@@ -13,10 +13,22 @@ struct AddWorkoutView: View {
 
     @ObservedObject var vm = AddWorkoutVM()
     @State var err: String? = nil
-
+    @State var startTime: Date = Date.now.nearestHour()!
+    @State var endTime: Date = (Date.now + 3600).nearestHour()!
     
     var body: some View {
         VStack {
+            Text("Start time")
+                .frame(alignment: .leading)
+            DatePicker("Start time", selection: $startTime, displayedComponents: [.date, .hourAndMinute])
+                .labelsHidden()
+                .padding(.bottom)
+                .onAppear { UIDatePicker.appearance().minuteInterval = 5 }
+            Text("End time")
+                .frame(alignment: .leading)
+            DatePicker("End time", selection: $endTime, displayedComponents: [.date, .hourAndMinute])
+                .labelsHidden()
+                .padding(.bottom)
             DropDownView(placeholder: vm.placeholder, dropDownList: vm.options, completion: { str in
                 vm.value = str
             })
@@ -29,7 +41,7 @@ struct AddWorkoutView: View {
                     err = "Please select a type"
                     return
                 }
-                self.vm.addData() { error in
+                self.vm.addData(startTime: startTime, endTime: endTime) { error in
                     guard error == nil else {
                         err = "Unable to add workout"
                         return
@@ -44,6 +56,8 @@ struct AddWorkoutView: View {
                 .frame(width: 100, height: 40, alignment: .center)
                 .border(.blue)
         }
+        .frame(maxHeight: .infinity, alignment: .top)
+        .padding(.top, 40)
     }
 }
 
