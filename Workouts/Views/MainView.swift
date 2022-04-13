@@ -17,6 +17,9 @@ struct MainView: View {
     
     @EnvironmentObject var authState: AuthState
     @State var selection: Tab = .home
+    var profileView: ProfileView = ProfileView()
+    var homeView: HomeView = HomeView()
+    var workoutsView: WorkoutsView = WorkoutsView()
     
     init() {
         UITabBar.appearance().backgroundColor = .white
@@ -24,14 +27,14 @@ struct MainView: View {
     
     var body: some View {
         TabView(selection: $selection) {
-            HomeView()
+            homeView
                 .environmentObject(authState)
                 .tabItem {
                     Image(systemName: "house")
                     Text("Home")
                 }
                 .tag(Tab.home)
-            WorkoutsView()
+            workoutsView
                 .environmentObject(authState)
                 .tabItem {
                     Image("dumbbell.SFSymbol")
@@ -39,7 +42,7 @@ struct MainView: View {
                     Text("Workouts")
                 }
                 .tag(Tab.workouts)
-            ProfileView()
+            profileView
                 .environmentObject(authState)
                 .tabItem {
                     Image(systemName: "person")
