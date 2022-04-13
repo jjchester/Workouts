@@ -23,6 +23,8 @@
 		D0937807280576A4008082E2 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0937806280576A4008082E2 /* DateExtension.swift */; };
 		D093780928057DAF008082E2 /* WorkoutDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D093780828057DAF008082E2 /* WorkoutDetailsView.swift */; };
 		D093780F28067A6D008082E2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D093780E28067A6D008082E2 /* Assets.xcassets */; };
+		D09378162806B012008082E2 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09378152806B012008082E2 /* StorageManager.swift */; };
+		D093781A2806C081008082E2 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09378192806C081008082E2 /* ImagePicker.swift */; };
 		D0B07937280241F3007EE7D6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D0B07936280241F3007EE7D6 /* GoogleService-Info.plist */; };
 		D0B0793B2802495D007EE7D6 /* AuthState.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B0793A2802495D007EE7D6 /* AuthState.swift */; };
 		D0B0793D28024BA8007EE7D6 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B0793C28024BA8007EE7D6 /* MainView.swift */; };
@@ -51,6 +53,8 @@
 		D0937806280576A4008082E2 /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 		D093780828057DAF008082E2 /* WorkoutDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutDetailsView.swift; sourceTree = "<group>"; };
 		D093780E28067A6D008082E2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D09378152806B012008082E2 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
+		D09378192806C081008082E2 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		D0B07936280241F3007EE7D6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D0B0793A2802495D007EE7D6 /* AuthState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthState.swift; sourceTree = "<group>"; };
 		D0B0793C28024BA8007EE7D6 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -122,6 +126,7 @@
 			children = (
 				D09377F528052C40008082E2 /* WorkoutCardView.swift */,
 				D09377FF28056505008082E2 /* DropDownView.swift */,
+				D09378192806C081008082E2 /* ImagePicker.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -132,6 +137,16 @@
 				D0937806280576A4008082E2 /* DateExtension.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		D09378142806AFF9008082E2 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				D093780528057697008082E2 /* Extensions */,
+				D09378032805752F008082E2 /* Helper.swift */,
+				D09378152806B012008082E2 /* StorageManager.swift */,
+			);
+			path = Utility;
 			sourceTree = "<group>";
 		};
 		D0B079382802491C007EE7D6 /* Views */ = {
@@ -183,7 +198,7 @@
 		D0C1EB3228023716001A7959 /* Workouts */ = {
 			isa = PBXGroup;
 			children = (
-				D093780528057697008082E2 /* Extensions */,
+				D09378142806AFF9008082E2 /* Utility */,
 				D09377EC28040A6B008082E2 /* Controllers */,
 				D0B0793A2802495D007EE7D6 /* AuthState.swift */,
 				D09377E7280279E8008082E2 /* Models */,
@@ -193,7 +208,6 @@
 				D0B07936280241F3007EE7D6 /* GoogleService-Info.plist */,
 				D0C1EB3328023716001A7959 /* WorkoutsApp.swift */,
 				D0C1EB3928023717001A7959 /* Preview Content */,
-				D09378032805752F008082E2 /* Helper.swift */,
 			);
 			path = Workouts;
 			sourceTree = "<group>";
@@ -328,11 +342,13 @@
 				D09377FC28054E13008082E2 /* WorkoutModel.swift in Sources */,
 				D0937807280576A4008082E2 /* DateExtension.swift in Sources */,
 				D09378042805752F008082E2 /* Helper.swift in Sources */,
+				D093781A2806C081008082E2 /* ImagePicker.swift in Sources */,
 				D093780928057DAF008082E2 /* WorkoutDetailsView.swift in Sources */,
 				D093780028056505008082E2 /* DropDownView.swift in Sources */,
 				D09378022805697F008082E2 /* AddWorkoutViewModel.swift in Sources */,
 				D09377EB2803E3C9008082E2 /* UserModel.swift in Sources */,
 				D09377F828052C59008082E2 /* WorkoutViewModel.swift in Sources */,
+				D09378162806B012008082E2 /* StorageManager.swift in Sources */,
 				D09377F028040CAE008082E2 /* ProfileViewModel.swift in Sources */,
 				D0C1EB3428023716001A7959 /* WorkoutsApp.swift in Sources */,
 				D09377FA28054879008082E2 /* WorkoutsViewModel.swift in Sources */,

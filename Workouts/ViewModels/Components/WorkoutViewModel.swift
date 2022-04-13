@@ -38,7 +38,10 @@ class WorkoutViewModel: ObservableObject, Hashable {
 
     var duration: String {
         get {
-            if self.workoutModel.durationHours == 1 {
+            if self.workoutModel.durationHours == 0 {
+                return "\(self.workoutModel.durationMinutes) minutes"
+            }
+            else if self.workoutModel.durationHours == 1 {
                 if self.workoutModel.durationMinutes == 0 {
                     return "\(self.workoutModel.durationHours) hour"
                 } else {

@@ -8,4 +8,5 @@ target 'Workouts' do
   # Pods for Workouts
   pod 'Firebase/Auth'
   pod 'Firebase/Firestore'
+  pod 'Firebase/Storage'
 end

@@ -36,6 +36,10 @@ class ProfileViewModel: ObservableObject {
         get {
             return user.imageURL
         }
+        set {
+            user.imageURL = newValue
+            updateUser()
+        }
     }
     
     let db = Firestore.firestore()
@@ -63,6 +67,13 @@ class ProfileViewModel: ObservableObject {
                 )
             }
         }
+    }
+    
+    func updateUser() {
+        let uid = FirebaseAuth.Auth.auth().currentUser!.uid;
+        let db = Firestore.firestore()
+        
+        db.collection("users").document(uid).setData(user.toJson(), merge: true)
     }
 }
 

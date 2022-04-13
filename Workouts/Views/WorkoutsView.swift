@@ -16,7 +16,9 @@ struct WorkoutsView: View {
     
     var body: some View {
         VStack {
-            Text("Banner")
+            Rectangle()
+                .foregroundColor(.white)
+                .frame(maxWidth: .infinity, maxHeight: 1)
             ZStack(alignment: .bottomTrailing) {
                 ScrollView {
                     VStack(spacing: 10) {
@@ -36,11 +38,13 @@ struct WorkoutsView: View {
                     Button(action: {
                         self.selection = 1
                     }, label: {
-                        Image(systemName: "plus.circle.fill")
-                            .foregroundColor(.blue)
+                        Image(systemName: "plus")
+                            .padding(6)
+                            .foregroundColor(Color("brightBlue"))
+                            .background(Color(red: 0.99, green: 0.99, blue: 0.99))
                             .clipShape(Circle())
-                            .font(.system(size: 55))
-                            .shadow(color: .gray, radius: 1, x: 0, y: 2)
+                            .font(.system(size: 34, weight: .light))
+                            .shadow(color: .gray, radius: 2, x: 0, y: 2)
                     }
                     )
                         .padding()

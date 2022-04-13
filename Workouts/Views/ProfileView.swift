@@ -11,6 +11,11 @@ struct ProfileView: View {
 
     @EnvironmentObject var authState: AuthState
     @ObservedObject var viewModel: ProfileVM = ProfileVM()
+    @State private var image: UIImage = UIImage()
+    @State private var showSheet = false
+    @State var showCaptureImageView = false
+    @State var isLoading = false
+    var storageManager = StorageManager()
     
     var body: some View {
         ZStack {
@@ -22,10 +27,27 @@ struct ProfileView: View {
                             ProgressView()
                                 .frame(width: 120, height: 120)
                         case .success(let image):
-                            image.resizable()
-                                 .aspectRatio(contentMode: .fit)
-                                 .frame(width: 120, height: 120)
-                                 .clipShape(Circle())
+                            ZStack(alignment: .bottomTrailing) {
+                                image.resizable()
+                                    .aspectRatio(contentMode: .fill)
+                                     .frame(width: 140, height: 140)
+                                     .clipShape(Circle())
+                                     .padding(4)
+                                Image(systemName: "pencil")
+                                        .font(.system(size: 24))
+                                        .padding(8)
+                                        .foregroundColor(.white)
+                                        .background(.blue)
+                                        .clipShape(Circle())
+                                        .overlay(
+                                            RoundedRectangle(cornerRadius: 20)
+                                                .stroke(Color.white, lineWidth: 2)
+                                        )
+                                        .onTapGesture {
+                                        showSheet = true
+                                    }
+                            }
+                            
                         case .failure:
                             Image(systemName: "photo")
                         @unknown default:
@@ -35,8 +57,21 @@ struct ProfileView: View {
                             // in the future:
                             EmptyView()
                         }
+                        if isLoading {
+                            ProgressView()
+                        }
                     }
-                    VStack(spacing: 1) {
+                    .sheet(isPresented: $showSheet) {
+                        ImagePicker(selectedImage: $image)
+                    }
+                    .onChange(of: image, perform: { image in
+                        self.isLoading = true
+                        storageManager.upload(image: image) { url in
+                            viewModel.imageURL = url
+                            self.isLoading = false
+                        }
+                    })
+                VStack(spacing: 1) {
                         Text(viewModel.name)
                             .font(.title2)
                         Text(viewModel.email)
@@ -58,11 +93,5 @@ struct ProfileView: View {
                     .padding()
             }
         }
-    }
-}
-
-struct ProfileView_Previews: PreviewProvider {
-    static var previews: some View {
-        ProfileView()
     }
 }
