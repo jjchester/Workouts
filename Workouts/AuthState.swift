@@ -68,6 +68,7 @@ class AuthState: ObservableObject {
             let db = Firestore.firestore()
             
             db.collection("users").document(uid).setData(UserModel(uid: uid, firstName: firstName, lastName: lastName, email: email).toJson())
+            StorageManager().upload(image: UIImage(named: "placeholder")!, completion: { _ in })
             DispatchQueue.main.async {
                 self?.signedIn = true
             }

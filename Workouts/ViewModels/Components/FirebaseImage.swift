@@ -19,7 +19,8 @@ struct FirebaseImage : View {
 
     @ObservedObject private var imageLoader : Loader
     @State private var showSheet = false
-    @State var isLoading = false
+    @State private var isLoading = false
+    
     var viewModel: ProfileViewModel
 
     @State var imageBinding: UIImage = UIImage()
@@ -31,6 +32,7 @@ struct FirebaseImage : View {
     var body: some View {
         if imageLoader.isLoading {
             ProgressView()
+                .frame(width: 140, height: 140)
         } else {
             VStack {
                 ZStack(alignment: .bottomTrailing) {
@@ -51,10 +53,9 @@ struct FirebaseImage : View {
                         )
                         .onTapGesture {
                             showSheet = true
-                            isLoading = true
                         }
                 }
-                if isLoading {
+                if showSheet || isLoading {
                     ProgressView()
                 }
             }
@@ -62,12 +63,13 @@ struct FirebaseImage : View {
                 ImagePicker(selectedImage: $imageBinding)
             }
             .onChange(of: imageBinding, perform: { image in
-                self.isLoading = true
+                isLoading = true
                 StorageManager().upload(image: image) { url in
                     viewModel.imageURL = url
-                    self.isLoading = false
+                    isLoading = false
                 }
             })
+
         }
     }
 }

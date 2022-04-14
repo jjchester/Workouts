@@ -26,6 +26,12 @@ struct WorkoutsView: View {
                             ProgressView()
                                 .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottomTrailing)
                         } else {
+                            if (vm.models.count == 0) {
+                                Text("Add a workout with the \"+\" button")
+                                    .foregroundColor(.gray)
+                                    .frame(maxWidth: .infinity, alignment: .center)
+                                    .padding(.top, 150)
+                            }
                             LazyVGrid(columns: [GridItem(.flexible())]) {
                                 ForEach(vm.viewModels, id: \.self) { viewModel in
                                     WorkoutCardView(vm: viewModel)

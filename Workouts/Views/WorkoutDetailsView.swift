@@ -35,7 +35,7 @@ struct WorkoutDetailsView: View {
         .alert(isPresented: $isPresented) {
             Alert(
                 title: Text("Are you sure you want to delete this workout?"),
-                message: Text("This cation cannot be undone"),
+                message: Text("This action cannot be undone"),
                 primaryButton: .destructive(Text("Delete")) {
                     self.vm.deleteWorkout { error in
                         self.err = error

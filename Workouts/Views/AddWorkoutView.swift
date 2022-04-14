@@ -8,9 +8,9 @@
 import SwiftUI
 
 struct AddWorkoutView: View {
-
+    
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-
+    
     @ObservedObject var vm = AddWorkoutVM()
     @State var err: String? = nil
     @State var startTime: Date = Date.now.nearestHour()!
@@ -54,7 +54,10 @@ struct AddWorkoutView: View {
             }
             )
                 .frame(width: 100, height: 40, alignment: .center)
-                .border(.blue)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 10)
+                        .stroke(Color.blue, lineWidth: 2)
+                )
         }
         .frame(maxHeight: .infinity, alignment: .top)
         .padding(.top, 40)

@@ -23,62 +23,7 @@ struct ProfileView: View {
     var body: some View {
         ZStack {
             VStack {
-                VStack {
-//                    AsyncImage(url: URL(string: viewModel.imageURL)) { phase in
-//                        switch phase {
-//                        case .empty:
-//                            ProgressView()
-//                                .frame(width: 120, height: 120)
-//                        case .success(let image):
-//                            ZStack(alignment: .bottomTrailing) {
-//                                image.resizable()
-//                                    .aspectRatio(contentMode: .fill)
-//                                     .frame(width: 140, height: 140)
-//                                     .clipShape(Circle())
-//                                     .padding(4)
-//                                Image(systemName: "pencil")
-//                                        .font(.system(size: 24))
-//                                        .padding(8)
-//                                        .foregroundColor(.white)
-//                                        .background(.blue)
-//                                        .clipShape(Circle())
-//                                        .overlay(
-//                                            RoundedRectangle(cornerRadius: 20)
-//                                                .stroke(Color.white, lineWidth: 2)
-//                                        )
-//                                        .onTapGesture {
-//                                            self.isLoading = true
-//                                        showSheet = true
-//                                    }
-//                            }
-//
-//                        case .failure:
-//                            ProgressView()
-//                                .frame(width: 120, height: 120)
-//                        @unknown default:
-//                            // Since the AsyncImagePhase enum isn't frozen,
-//                            // we need to add this currently unused fallback
-//                            // to handle any new cases that might be added
-//                            // in the future:
-//                            ProgressView()
-//                                .frame(width: 120, height: 120)
-//                        }
-//                    }
-                        FirebaseImage(id: FirebaseAuth.Auth.auth().currentUser?.uid ?? "placeholder", viewModel: self.viewModel)
-                        if isLoading {
-                            ProgressView()
-                        }
-                    }
-                    .sheet(isPresented: $showSheet) {
-                        ImagePicker(selectedImage: $image)
-                    }
-                    .onChange(of: image, perform: { image in
-                        print("Image changed")
-                        storageManager.upload(image: image) { url in
-                            viewModel.imageURL = url
-                            self.isLoading = false
-                        }
-                    })
+                FirebaseImage(id: FirebaseAuth.Auth.auth().currentUser?.uid ?? "placeholder", viewModel: self.viewModel)
                 VStack(spacing: 1) {
                         Text(viewModel.name)
                             .font(.title2)
