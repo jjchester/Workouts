@@ -12,20 +12,19 @@ struct HomeView: View {
     @EnvironmentObject var authState: AuthState
     @ObservedObject var viewModel: HomeViewModel
     @State var steps: Double?
-    
+
     init(viewModel: HomeViewModel) {
         self.viewModel = viewModel
     }
     
     var body: some View {
-        VStack {
-            Text("Signed in")
-                .padding()
-            if viewModel.isLoading {
-                ProgressView()
-            } else {
-                Text(String(viewModel.steps!))
+        ScrollView {
+            VStack {
+                HomeViewCard(vm: self.viewModel)
             }
+            .padding(.leading, 30)
+            .padding(.trailing, 30)
+            .padding(.top, 20)
         }
         .onAppear {
             viewModel.updateSteps()
