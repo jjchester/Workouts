@@ -51,13 +51,13 @@ struct AddWorkoutView: View {
                 }
             }, label: {
                 Text("Add")
+                    .frame(width: 80, height: 40, alignment: .center)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 10)
+                            .stroke(Color.blue, lineWidth: 2)
+                    )
             }
             )
-                .frame(width: 100, height: 40, alignment: .center)
-                .overlay(
-                    RoundedRectangle(cornerRadius: 10)
-                        .stroke(Color.blue, lineWidth: 2)
-                )
         }
         .frame(maxHeight: .infinity, alignment: .top)
         .padding(.top, 40)

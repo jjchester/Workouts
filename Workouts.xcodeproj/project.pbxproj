@@ -27,6 +27,11 @@
 		D093781A2806C081008082E2 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09378192806C081008082E2 /* ImagePicker.swift */; };
 		D093782A2807821C008082E2 /* FirebaseImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09378292807821C008082E2 /* FirebaseImage.swift */; };
 		D093782C28078242008082E2 /* Loader.swift in Sources */ = {isa = PBXBuildFile; fileRef = D093782B28078242008082E2 /* Loader.swift */; };
+		D09378332808870E008082E2 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D09378322808870E008082E2 /* HealthKit.framework */; };
+		D093783D2808F4B8008082E2 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = D093783C2808F4B8008082E2 /* View.swift */; };
+		D093783F2808F711008082E2 /* TappableTextFieldStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D093783E2808F711008082E2 /* TappableTextFieldStyle.swift */; };
+		D093784228092F74008082E2 /* HealthController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D093784128092F74008082E2 /* HealthController.swift */; };
+		D093784428093165008082E2 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D093784328093165008082E2 /* HomeViewModel.swift */; };
 		D0B07937280241F3007EE7D6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D0B07936280241F3007EE7D6 /* GoogleService-Info.plist */; };
 		D0B0793B2802495D007EE7D6 /* AuthState.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B0793A2802495D007EE7D6 /* AuthState.swift */; };
 		D0B0793D28024BA8007EE7D6 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B0793C28024BA8007EE7D6 /* MainView.swift */; };
@@ -59,6 +64,12 @@
 		D09378192806C081008082E2 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		D09378292807821C008082E2 /* FirebaseImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseImage.swift; sourceTree = "<group>"; };
 		D093782B28078242008082E2 /* Loader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loader.swift; sourceTree = "<group>"; };
+		D09378312808870D008082E2 /* Workouts.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Workouts.entitlements; sourceTree = "<group>"; };
+		D09378322808870E008082E2 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
+		D093783C2808F4B8008082E2 /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
+		D093783E2808F711008082E2 /* TappableTextFieldStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TappableTextFieldStyle.swift; sourceTree = "<group>"; };
+		D093784128092F74008082E2 /* HealthController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthController.swift; sourceTree = "<group>"; };
+		D093784328093165008082E2 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		D0B07936280241F3007EE7D6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D0B0793A2802495D007EE7D6 /* AuthState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthState.swift; sourceTree = "<group>"; };
 		D0B0793C28024BA8007EE7D6 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -78,6 +89,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9DFFEDA154FC02B83D81E588 /* Pods_Workouts.framework in Frameworks */,
+				D09378332808870E008082E2 /* HealthKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -87,6 +99,7 @@
 		137BBA7EAC0DDE75F9C178E1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D09378322808870E008082E2 /* HealthKit.framework */,
 				701CC8D45FE9A4B71501F5A2 /* Pods_Workouts.framework */,
 			);
 			name = Frameworks;
@@ -113,6 +126,7 @@
 		D09377EC28040A6B008082E2 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				D093784028092F61008082E2 /* HealthKit */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -140,6 +154,7 @@
 			isa = PBXGroup;
 			children = (
 				D0937806280576A4008082E2 /* DateExtension.swift */,
+				D093783C2808F4B8008082E2 /* View.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -151,8 +166,17 @@
 				D09378032805752F008082E2 /* Helper.swift */,
 				D09378152806B012008082E2 /* StorageManager.swift */,
 				D093782B28078242008082E2 /* Loader.swift */,
+				D093783E2808F711008082E2 /* TappableTextFieldStyle.swift */,
 			);
 			path = Utility;
+			sourceTree = "<group>";
+		};
+		D093784028092F61008082E2 /* HealthKit */ = {
+			isa = PBXGroup;
+			children = (
+				D093784128092F74008082E2 /* HealthController.swift */,
+			);
+			path = HealthKit;
 			sourceTree = "<group>";
 		};
 		D0B079382802491C007EE7D6 /* Views */ = {
@@ -178,6 +202,7 @@
 				D09377F128051105008082E2 /* LoginViewModel.swift */,
 				D09377F928054879008082E2 /* WorkoutsViewModel.swift */,
 				D09378012805697F008082E2 /* AddWorkoutViewModel.swift */,
+				D093784328093165008082E2 /* HomeViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -204,6 +229,7 @@
 		D0C1EB3228023716001A7959 /* Workouts */ = {
 			isa = PBXGroup;
 			children = (
+				D09378312808870D008082E2 /* Workouts.entitlements */,
 				D09378142806AFF9008082E2 /* Utility */,
 				D09377EC28040A6B008082E2 /* Controllers */,
 				D0B0793A2802495D007EE7D6 /* AuthState.swift */,
@@ -345,10 +371,12 @@
 				D093782A2807821C008082E2 /* FirebaseImage.swift in Sources */,
 				D09377FE280559EA008082E2 /* AddWorkoutView.swift in Sources */,
 				D0C1EB3628023716001A7959 /* LoginView.swift in Sources */,
+				D093783F2808F711008082E2 /* TappableTextFieldStyle.swift in Sources */,
 				D0B0793D28024BA8007EE7D6 /* MainView.swift in Sources */,
 				D09377FC28054E13008082E2 /* WorkoutModel.swift in Sources */,
 				D0937807280576A4008082E2 /* DateExtension.swift in Sources */,
 				D09378042805752F008082E2 /* Helper.swift in Sources */,
+				D093784228092F74008082E2 /* HealthController.swift in Sources */,
 				D093781A2806C081008082E2 /* ImagePicker.swift in Sources */,
 				D093780928057DAF008082E2 /* WorkoutDetailsView.swift in Sources */,
 				D093780028056505008082E2 /* DropDownView.swift in Sources */,
@@ -361,6 +389,8 @@
 				D0C1EB3428023716001A7959 /* WorkoutsApp.swift in Sources */,
 				D09377FA28054879008082E2 /* WorkoutsViewModel.swift in Sources */,
 				D0B0794128024D50007EE7D6 /* ProfileView.swift in Sources */,
+				D093783D2808F4B8008082E2 /* View.swift in Sources */,
+				D093784428093165008082E2 /* HomeViewModel.swift in Sources */,
 				D0B0793F28024BE7007EE7D6 /* HomeView.swift in Sources */,
 				D09377E92803736D008082E2 /* WorkoutsView.swift in Sources */,
 				D09377F228051105008082E2 /* LoginViewModel.swift in Sources */,
@@ -493,6 +523,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Workouts/Workouts.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Workouts/Preview Content\"";
@@ -523,6 +554,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Workouts/Workouts.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Workouts/Preview Content\"";

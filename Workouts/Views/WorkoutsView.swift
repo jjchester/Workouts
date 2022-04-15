@@ -32,9 +32,11 @@ struct WorkoutsView: View {
                                     .frame(maxWidth: .infinity, alignment: .center)
                                     .padding(.top, 150)
                             }
-                            LazyVGrid(columns: [GridItem(.flexible())]) {
+                            LazyVGrid(columns: [GridItem(.flexible())], spacing: 10) {
                                 ForEach(vm.viewModels, id: \.self) { viewModel in
                                     WorkoutCardView(vm: viewModel)
+                                        .padding(.leading)
+                                        .padding(.trailing)
                                 }
                             }
                         }
@@ -45,11 +47,11 @@ struct WorkoutsView: View {
                         self.selection = 1
                     }, label: {
                         Image(systemName: "plus")
-                            .padding(6)
+                            .padding(10)
                             .foregroundColor(Color("brightBlue"))
                             .background(Color(red: 0.99, green: 0.99, blue: 0.99))
                             .clipShape(Circle())
-                            .font(.system(size: 34, weight: .light))
+                            .font(.system(size: 30))
                             .shadow(color: .gray, radius: 2, x: 0, y: 2)
                     }
                     )

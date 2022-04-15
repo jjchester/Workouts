@@ -65,7 +65,6 @@ struct WorkoutCardView: View {
                 .padding()
             }
             .frame(minHeight: 100)
-            .padding()
         }
         .buttonStyle(PlainButtonStyle())
     }

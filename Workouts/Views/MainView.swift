@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import HealthKit
 
 enum Tab {
     case home
@@ -17,12 +18,33 @@ struct MainView: View {
     
     @EnvironmentObject var authState: AuthState
     @State var selection: Tab = .home
-    var profileView: ProfileView = ProfileView()
-    var homeView: HomeView = HomeView()
-    var workoutsView: WorkoutsView = WorkoutsView()
-    
+    var profileView: ProfileView
+    var homeView: HomeView
+    var workoutsView: WorkoutsView
+    var healthStore: HKHealthStore?
+    var healthController: HealthController = HealthController()
+     
     init() {
+        homeView = HomeView(viewModel: HomeViewModel(healthController: healthController))
+        workoutsView = WorkoutsView()
+        profileView = ProfileView()
         UITabBar.appearance().backgroundColor = .white
+        if (HKHealthStore.isHealthDataAvailable()) {
+            let allTypes = Set([HKObjectType.workoutType(),
+                                HKObjectType.quantityType(forIdentifier: .activeEnergyBurned)!,
+                                HKObjectType.quantityType(forIdentifier: .distanceWalkingRunning)!,
+                                HKObjectType.quantityType(forIdentifier: .heartRate)!,
+                                HKObjectType.quantityType(forIdentifier: .stepCount)!,
+                                HKSeriesType.workoutType()])
+
+            healthStore = HKHealthStore()
+            healthStore!.requestAuthorization(toShare: allTypes, read: allTypes) { (success, error) in
+                if !success {
+                    print("Error retrieving health data: " + (error?.localizedDescription ?? " "))
+                    return
+                }
+            }
+        }
     }
     
     var body: some View {

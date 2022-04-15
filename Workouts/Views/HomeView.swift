@@ -10,17 +10,25 @@ import SwiftUI
 struct HomeView: View {
     
     @EnvironmentObject var authState: AuthState
-
+    @ObservedObject var viewModel: HomeViewModel
+    @State var steps: Double?
+    
+    init(viewModel: HomeViewModel) {
+        self.viewModel = viewModel
+    }
+    
     var body: some View {
         VStack {
             Text("Signed in")
                 .padding()
+            if viewModel.isLoading {
+                ProgressView()
+            } else {
+                Text(String(viewModel.steps!))
+            }
         }
-    }
-}
-
-struct HomeView_Previews: PreviewProvider {
-    static var previews: some View {
-        HomeView()
+        .onAppear {
+            viewModel.updateSteps()
+        }
     }
 }

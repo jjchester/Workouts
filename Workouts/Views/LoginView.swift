@@ -46,13 +46,16 @@ struct SignInView: View {
                 .frame(width: 300, height: 300, alignment: .center)
                 .padding(.bottom, 30)
             TextField("Email Address", text: $email)
-                .padding()
+                .frame(minHeight: 50)
+                .textFieldStyle(TappableTextFieldStyle())
                 .background(Color(.secondarySystemBackground))
                 .cornerRadius(10)
                 .disableAutocorrection(true)
                 .autocapitalization(.none)
+                .keyboardType(.emailAddress)
             SecureField("Password", text: $password)
-                .padding()
+                .frame(minHeight: 50)
+                .textFieldStyle(TappableTextFieldStyle())
                 .background(Color(.secondarySystemBackground))
                 .cornerRadius(10)
             NavigationLink("Forgot password?", destination: ForgotPasswordView())
@@ -61,6 +64,7 @@ struct SignInView: View {
             if errorCode != nil {
                 Text(errorCode!)
                     .foregroundColor(.red)
+                    .padding()
             }
             Button(action: {
                 authState.signIn(email: self.email, password: self.password, completion: { error in
@@ -80,10 +84,15 @@ struct SignInView: View {
                 .foregroundColor(.blue)
                 .padding()
         }
+        .edgesIgnoringSafeArea(.top)
         .padding()
+        .background(.white)
         .padding(.leading, 30)
         .padding(.trailing, 30)
         .frame(maxHeight: .infinity, alignment: .top)
+        .onTapGesture {
+            self.endTextEditing()
+        }
     }
 }
 
@@ -109,32 +118,38 @@ struct SignUpView: View {
         VStack {
             Image("dumbbell")
                 .resizable()
-                .frame(width: 300, height: 300, alignment: .center)
+                .frame(width: 200, height: 200, alignment: .center)
                 .padding(.bottom, 30)
             HStack {
                 TextField("First name", text: $firstName)
-                    .padding()
+                    .frame(minHeight: 50)
+                    .textFieldStyle(TappableTextFieldStyle())
                     .background(Color(.secondarySystemBackground))
                     .cornerRadius(10)
                     .disableAutocorrection(true)
                 TextField("Last name", text: $lastName)
-                    .padding()
+                    .frame(minHeight: 50)
+                    .textFieldStyle(TappableTextFieldStyle())
                     .background(Color(.secondarySystemBackground))
                     .cornerRadius(10)
                     .disableAutocorrection(true)
             }
             TextField("Email Address", text: $email)
-                .padding()
+                .frame(minHeight: 50)
+                .textFieldStyle(TappableTextFieldStyle())
                 .background(Color(.secondarySystemBackground))
                 .cornerRadius(10)
                 .disableAutocorrection(true)
                 .autocapitalization(.none)
+                .keyboardType(.emailAddress)
             SecureField("Password", text: $password)
-                .padding()
+                .frame(minHeight: 50)
+                .textFieldStyle(TappableTextFieldStyle())
                 .background(Color(.secondarySystemBackground))
                 .cornerRadius(10)
             SecureField("Confirm password", text: $passwordConfirm)
-                .padding()
+                .frame(minHeight: 50)
+                .textFieldStyle(TappableTextFieldStyle())
                 .background(Color(.secondarySystemBackground))
                 .cornerRadius(10)
             if errorCode != nil {
@@ -142,12 +157,14 @@ struct SignUpView: View {
                     .foregroundColor(.red)
             }
             Button(action: {
-                if passwordsMatch() {
+                if !passwordsMatch() {
+                    errorCode = "Passwords do not match"
+                } else if firstName.isEmpty || lastName.isEmpty {
+                    errorCode = "Name fields cannot be empty"
+                } else {
                     authState.signUp(firstName: firstName, lastName: lastName, email: email, password: password, completion: { error in
                         errorCode = error
                     })
-                } else {
-                    errorCode = "Passwords do not match"
                 }
             }, label: {
                 Text("Sign Up")
@@ -160,12 +177,14 @@ struct SignUpView: View {
             })
                 .padding(.top, 30)
         }
+        .edgesIgnoringSafeArea(.top)
         .padding(.top, 30)
-        .padding(.bottom, 70)
         .padding(.leading, 30)
         .padding(.trailing, 30)
         .frame(maxHeight: .infinity, alignment: .top)
-
+        .onTapGesture {
+            self.endTextEditing()
+        }
     }
 }
 
