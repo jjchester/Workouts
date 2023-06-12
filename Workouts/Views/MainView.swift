@@ -12,6 +12,7 @@ enum Tab {
     case home
     case workouts
     case profile
+    case settings
 }
 
 struct MainView: View {
@@ -21,6 +22,7 @@ struct MainView: View {
     var profileView: ProfileView
     var homeView: HomeView
     var workoutsView: WorkoutsView
+    var settingsView: SettingsView
     var healthStore: HKHealthStore?
     var healthController: HealthController = HealthController()
      
@@ -28,6 +30,7 @@ struct MainView: View {
         homeView = HomeView(viewModel: HomeViewModel(healthController: healthController))
         workoutsView = WorkoutsView()
         profileView = ProfileView()
+        settingsView = SettingsView()
         UITabBar.appearance().backgroundColor = .white
         if (HKHealthStore.isHealthDataAvailable()) {
             let allTypes = Set([HKObjectType.workoutType(),
@@ -71,6 +74,12 @@ struct MainView: View {
                     Text("Profile")
                 }
                 .tag(Tab.profile)
+            settingsView
+                .tabItem {
+                    Image(systemName: "gear")
+                    Text("Settings")
+                }
+                .tag(Tab.settings)
         }
         .navigationTitle(getNavigationTitle())
     }
@@ -83,6 +92,8 @@ struct MainView: View {
             return "Workouts"
         case .profile:
             return "Profile"
+        case .settings:
+            return "Settings"
         }
     }
 }

@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct HomeViewCard: View {
+struct HomeViewStepCard: View {
     @ObservedObject var vm: HomeViewModel
     
     init(vm: HomeViewModel) {
@@ -20,7 +20,7 @@ struct HomeViewCard: View {
                 .fill(.blue)
                 .opacity(0.8)
                 .shadow(color: .gray.opacity(0.5), radius: 2, x: 1, y: 3)
-            if vm.isLoadingSteps || vm.isLoadingWeeklySteps{
+            if vm.isLoadingSteps || vm.isLoadingWeeklySteps {
                 HStack {
                     Image(systemName: "figure.walk")
                         .foregroundColor(.white)
@@ -31,7 +31,6 @@ struct HomeViewCard: View {
                         AnimatedGradient(width: 160, height: 18)
                     }
                     .frame(maxWidth: .infinity, alignment: .topLeading)
-                    .padding()
                 }
                 .padding()
             } else {
@@ -41,21 +40,28 @@ struct HomeViewCard: View {
                         .font(.system(size: 50))
                         .frame(maxHeight: .infinity, alignment: .center)
                     VStack {
-                        Text(String(vm.steps!) + " steps")
-                            .font(.system(size: 28, weight: .bold, design: .rounded))
+                        Text("Daily Steps")
+                            .font(.system(size: 26, weight: .bold, design: .rounded))
                             .foregroundColor(.white)
-                            .frame(maxWidth: .infinity, alignment: .topLeading)
-                        Text("Weekly average: \(vm.weeklySteps!)")
-                            .font(.system(size: 18, design: .rounded))
+                            .padding(.trailing)
+                            .frame(maxWidth: .infinity, alignment: .leading)
+
+                            Text(String(vm.steps!))
+                                .font(.system(size: 28, weight: .bold, design: .rounded))
+                                .foregroundColor(.white)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        Text("Weekly Average \(vm.averageWeeklySteps!)")
+                            .font(.system(size: 18, weight: .bold, design: .rounded))
                             .foregroundColor(.white)
                             .frame(maxWidth: .infinity, alignment: .topLeading)
                     }
                     .frame(maxWidth: .infinity, alignment: .topLeading)
                     .padding()
                 }
-                .padding()
+                .padding(.leading)
+                .padding(.trailing)
             }
         }
-        .frame(height: 120)
+        .frame(minHeight: 120)
     }
 }

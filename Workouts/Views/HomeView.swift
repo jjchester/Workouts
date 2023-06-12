@@ -12,6 +12,7 @@ struct HomeView: View {
     @EnvironmentObject var authState: AuthState
     @ObservedObject var viewModel: HomeViewModel
     @State var steps: Double?
+    let timer = Timer.publish(every: 3, on: .main, in: .common).autoconnect()
 
     init(viewModel: HomeViewModel) {
         self.viewModel = viewModel
@@ -19,8 +20,11 @@ struct HomeView: View {
     
     var body: some View {
         ScrollView {
-            VStack {
-                HomeViewCard(vm: self.viewModel)
+            VStack(spacing: 20) {
+                // Steps card
+                HomeViewStepCard(vm: self.viewModel)
+                HomeViewCalsCard(vm: self.viewModel)
+                HomeViewHeartRateCard(vm: self.viewModel)
             }
             .padding(.leading, 30)
             .padding(.trailing, 30)
@@ -28,6 +32,11 @@ struct HomeView: View {
         }
         .onAppear {
             viewModel.updateSteps()
+        }
+        .onReceive(timer) { _ in
+            // Workaround for not being able to listen to health changes
+            viewModel.updateSteps()
+            viewModel.updateCalories()
         }
     }
 }

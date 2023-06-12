@@ -64,7 +64,7 @@ struct SignInView: View {
             if errorCode != nil {
                 Text(errorCode!)
                     .foregroundColor(.red)
-                    .padding()
+                    .padding(.top)
             }
             Button(action: {
                 authState.signIn(email: self.email, password: self.password, completion: { error in

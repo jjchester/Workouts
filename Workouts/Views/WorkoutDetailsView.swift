@@ -24,7 +24,7 @@ struct WorkoutDetailsView: View {
             Button(action: {
                 self.isPresented = true
             }, label: {
-                Text("Delete workout")
+                Text("Remove workout")
                     .foregroundColor(.red)
                     .frame(width: 160, height: 40)
                     .cornerRadius(10)

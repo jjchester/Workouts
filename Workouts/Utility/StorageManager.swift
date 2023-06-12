@@ -8,7 +8,6 @@ public class StorageManager: ObservableObject {
     let uid: String = FirebaseAuth.Auth.auth().currentUser?.uid ?? " "
     
     func upload(image: UIImage, completion: @escaping (String) -> ()) {
-        //print("uploading")
         // Create a storage reference
         let storageRef = storage.reference().child("images/\(uid).jpg")
 
